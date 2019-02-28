@@ -38,6 +38,15 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         self.vcf_env_mode_denv_rbutton.pressed.connect(self.vcf_env_mode_denv_slot)
         self.vcf_env_mode_dyn_rbutton.pressed.connect(self.vcf_env_mode_dyn_slot)
 
+        self.env_t1_slider.valueChanged.connect(self.env_t1_slot)
+        self.env_l1_slider.valueChanged.connect(self.env_l1_slot)
+        self.env_t2_slider.valueChanged.connect(self.env_t2_slot)
+        self.env_l2_slider.valueChanged.connect(self.env_l2_slot)
+        self.env_t3_slider.valueChanged.connect(self.env_t3_slot)
+        self.env_l3_slider.valueChanged.connect(self.env_l3_slot)
+        self.env_t4_slider.valueChanged.connect(self.env_t4_slot)
+        self.env_key_flw_slider.valueChanged.connect(self.env_key_flw_slot)
+
     def vcf_hpf_slot(self):
         val = self.vcf_hpf_slider.value()
         sysex_send_ipr(9, val)
@@ -77,6 +86,38 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def vcf_env_mode_dyn_slot(self):
         sysex_send_ipr(1, 3)
+
+    def env_t1_slot(self):
+        val = self.env_t1_slider.value()
+        sysex_send_ipr(26, val)
+
+    def env_l1_slot(self):
+        val = self.env_l1_slider.value()
+        sysex_send_ipr(27, val)
+
+    def env_t2_slot(self):
+        val = self.env_t2_slider.value()
+        sysex_send_ipr(28, val)
+
+    def env_l2_slot(self):
+        val = self.env_l2_slider.value()
+        sysex_send_ipr(29, val)
+
+    def env_t3_slot(self):
+        val = self.env_t3_slider.value()
+        sysex_send_ipr(30, val)
+
+    def env_l3_slot(self):
+        val = self.env_l3_slider.value()
+        sysex_send_ipr(31, val)
+
+    def env_t4_slot(self):
+        val = self.env_t4_slider.value()
+        sysex_send_ipr(32, val)
+
+    def env_key_flw_slot(self):
+        val = self.env_key_flw_slider.value()
+        sysex_send_ipr(33, val)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
