@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>764</width>
-    <height>713</height>
+    <height>705</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QGroupBox" name="vca_groupBox">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>10</x>
       <y>450</y>
       <width>171</width>
       <height>211</height>
@@ -198,7 +198,7 @@
      <rect>
       <x>10</x>
       <y>230</y>
-      <width>381</width>
+      <width>391</width>
       <height>211</height>
      </rect>
     </property>
@@ -481,7 +481,7 @@
     <widget class="QGroupBox" name="vcf_env_groupBox">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>300</x>
        <y>40</y>
        <width>71</width>
        <height>121</height>
@@ -572,9 +572,9 @@
    <widget class="QGroupBox" name="evn_groupBox">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>420</x>
       <y>230</y>
-      <width>281</width>
+      <width>331</width>
       <height>211</height>
      </rect>
     </property>
@@ -622,7 +622,7 @@
     <widget class="QLabel" name="env_l1_label">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>40</x>
        <y>20</y>
        <width>40</width>
        <height>20</height>
@@ -641,7 +641,7 @@
     <widget class="QSlider" name="env_l1_slider">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>50</x>
        <y>40</y>
        <width>21</width>
        <height>160</height>
@@ -660,7 +660,7 @@
     <widget class="QLabel" name="env_t2_label">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>80</x>
        <y>20</y>
        <width>40</width>
        <height>20</height>
@@ -679,7 +679,7 @@
     <widget class="QSlider" name="env_t2_slider">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>90</x>
        <y>40</y>
        <width>21</width>
        <height>160</height>
@@ -698,7 +698,7 @@
     <widget class="QLabel" name="env_l2_label">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>120</x>
        <y>20</y>
        <width>41</width>
        <height>20</height>
@@ -717,7 +717,7 @@
     <widget class="QSlider" name="env_l2_slider">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>130</x>
        <y>40</y>
        <width>21</width>
        <height>160</height>
@@ -736,7 +736,7 @@
     <widget class="QLabel" name="env_t4_label">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>240</x>
        <y>20</y>
        <width>41</width>
        <height>20</height>
@@ -755,7 +755,7 @@
     <widget class="QLabel" name="env_l3_label">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>200</x>
        <y>20</y>
        <width>40</width>
        <height>20</height>
@@ -774,7 +774,7 @@
     <widget class="QSlider" name="env_t4_slider">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>250</x>
        <y>40</y>
        <width>21</width>
        <height>160</height>
@@ -793,7 +793,7 @@
     <widget class="QLabel" name="env_t3_label">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>160</x>
        <y>20</y>
        <width>40</width>
        <height>20</height>
@@ -812,7 +812,7 @@
     <widget class="QSlider" name="env_l3_slider">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>210</x>
        <y>40</y>
        <width>21</width>
        <height>160</height>
@@ -831,7 +831,7 @@
     <widget class="QSlider" name="env_t3_slider">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>170</x>
        <y>40</y>
        <width>21</width>
        <height>160</height>
@@ -850,7 +850,7 @@
     <widget class="QSlider" name="env_key_flw_slider">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>290</x>
        <y>40</y>
        <width>21</width>
        <height>160</height>
@@ -869,7 +869,7 @@
     <widget class="QLabel" name="env_key_flw_label">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>280</x>
        <y>20</y>
        <width>41</width>
        <height>20</height>
@@ -1590,7 +1590,7 @@
    <widget class="QGroupBox" name="lfo_groupBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>200</x>
       <y>450</y>
       <width>81</width>
       <height>211</height>
@@ -1679,38 +1679,131 @@
    <widget class="QGroupBox" name="midi_groupBox">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>410</x>
       <y>450</y>
-      <width>120</width>
-      <height>80</height>
+      <width>341</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="title">
      <string>MIDI</string>
     </property>
-    <widget class="QComboBox" name="midi_combo">
+    <widget class="QComboBox" name="midi_port_combo">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
-       <width>91</width>
+       <y>80</y>
+       <width>321</width>
        <height>31</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>30</y>
+       <width>47</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>16</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>33</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>MIDI Channel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>MIDI Port</string>
      </property>
     </widget>
    </widget>
    <widget class="QGroupBox" name="chorus_groupBox">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>300</x>
       <y>450</y>
-      <width>120</width>
-      <height>80</height>
+      <width>91</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="title">
      <string>Chorus</string>
     </property>
+    <widget class="QLabel" name="chorus_rate_label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>20</y>
+       <width>41</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;RATE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="chorus_rate_slider">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>40</y>
+       <width>21</width>
+       <height>160</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>127</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::TicksBothSides</enum>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="chorus_checkBox">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>30</y>
+       <width>20</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -1726,9 +1819,6 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOpen"/>
-    <addaction name="actionSave"/>
-    <addaction name="separator"/>
     <addaction name="actionQuit"/>
    </widget>
    <addaction name="menuFile"/>
