@@ -25,12 +25,6 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
-        # Special setup
-        self.vcf_env_mode_combo.addItem('ENV')
-        self.vcf_env_mode_combo.addItem('INV')
-        self.vcf_env_mode_combo.addItem('dENV')
-        self.vcf_env_mode_combo.addItem('dyn')
-
         # Connect up the controls
         self.vcf_hpf_slider.valueChanged.connect(self.vcf_hpf_slot)
         self.vcf_freq_slider.valueChanged.connect(self.vcf_freq_slot)
@@ -39,7 +33,10 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         self.vcf_key_flw_slider.valueChanged.connect(self.vcf_key_flw_slot)
         self.vcf_after_slider.valueChanged.connect(self.vcf_after_slot)
         self.vcf_env_slider.valueChanged.connect(self.vcf_env_slot)
-        self.vcf_env_mode_combo.currentIndexChanged.connect(self.vcf_env_mode_slot)
+        self.vcf_env_mode_env_rbutton.pressed.connect(self.vcf_env_mode_env_slot)
+        self.vcf_env_mode_inv_rbutton.pressed.connect(self.vcf_env_mode_inv_slot)
+        self.vcf_env_mode_denv_rbutton.pressed.connect(self.vcf_env_mode_denv_slot)
+        self.vcf_env_mode_dyn_rbutton.pressed.connect(self.vcf_env_mode_dyn_slot)
 
     def vcf_hpf_slot(self):
         val = self.vcf_hpf_slider.value()
@@ -69,9 +66,17 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         val = self.vcf_env_slider.value()
         sysex_send_ipr(19, val)
 
-    def vcf_env_mode_slot(self):
-        val = self.vcf_env_mode_combo.currentIndex()
-        sysex_send_ipr(1, val)
+    def vcf_env_mode_env_slot(self):
+        sysex_send_ipr(1, 0)
+
+    def vcf_env_mode_inv_slot(self):
+        sysex_send_ipr(1, 1)
+
+    def vcf_env_mode_denv_slot(self):
+        sysex_send_ipr(1, 2)
+
+    def vcf_env_mode_dyn_slot(self):
+        sysex_send_ipr(1, 3)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

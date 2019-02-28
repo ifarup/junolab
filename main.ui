@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>406</width>
-    <height>501</height>
+    <width>398</width>
+    <height>487</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,7 +42,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>381</width>
+      <width>351</width>
       <height>211</height>
      </rect>
     </property>
@@ -284,16 +284,6 @@
       <enum>QSlider::TicksBothSides</enum>
      </property>
     </widget>
-    <widget class="QComboBox" name="vcf_env_mode_combo">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>40</y>
-       <width>79</width>
-       <height>23</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="vcf_env_mode_label">
      <property name="geometry">
       <rect>
@@ -349,6 +339,78 @@
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;HPF&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="vcf_env_mode_env_rbutton">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>40</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>ENV</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="vcf_env_mode_inv_rbutton">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>60</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>INV</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="vcf_env_mode_denv_rbutton">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>80</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>DENV</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="vcf_env_mode_dyn_rbutton">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>100</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>DYN</string>
      </property>
     </widget>
    </widget>
@@ -675,7 +737,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>406</width>
+     <width>398</width>
      <height>20</height>
     </rect>
    </property>
