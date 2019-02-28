@@ -4,7 +4,7 @@ import sys
 import mido
 from PyQt5 import QtWidgets, uic
 
-qtCreatorFile = 'main.ui'
+qtCreatorFile = 'junolab.ui'
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 def sysex_send_ipr(parameter, value, channel=0):
