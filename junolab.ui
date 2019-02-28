@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>819</width>
-    <height>595</height>
+    <width>764</width>
+    <height>713</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,15 +17,181 @@
    <widget class="QGroupBox" name="vca_groupBox">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>230</y>
-      <width>111</width>
+      <x>410</x>
+      <y>450</y>
+      <width>171</width>
       <height>211</height>
      </rect>
     </property>
     <property name="title">
      <string>VCA</string>
     </property>
+    <widget class="QLabel" name="vca_level_label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>41</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;LEVEL&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="vca_level_slider">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>21</width>
+       <height>160</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>127</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::TicksBothSides</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="vca_after_label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>20</y>
+       <width>41</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;AFTER&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="vca_after_slider">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>40</y>
+       <width>21</width>
+       <height>160</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>127</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::TicksBothSides</enum>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="vca_env_groupBox">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>40</y>
+       <width>71</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>ENV MODE</string>
+     </property>
+     <widget class="QRadioButton" name="vca_env_mode_dgt_rbutton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>DGT</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="vca_env_mode_denv_rbutton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>DENV</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="vca_env_mode_gt_rbutton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>GT</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="vca_env_mode_env_rbutton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>51</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>ENV</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="vcf_groupBox">
     <property name="geometry">
@@ -312,7 +478,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;HPF&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QGroupBox" name="groupBox_2">
+    <widget class="QGroupBox" name="vcf_env_groupBox">
      <property name="geometry">
       <rect>
        <x>290</x>
@@ -1426,13 +1592,89 @@
      <rect>
       <x>10</x>
       <y>450</y>
-      <width>120</width>
-      <height>80</height>
+      <width>81</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="title">
      <string>LFO</string>
     </property>
+    <widget class="QLabel" name="lfo_rate_label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>41</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;RATE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lfo_delay_label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>20</y>
+       <width>41</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;DELAY&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="lfo_delay_slider">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>40</y>
+       <width>21</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>127</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::TicksBothSides</enum>
+     </property>
+    </widget>
+    <widget class="QSlider" name="lfo_rate_slider">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>21</width>
+       <height>160</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>127</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::TicksBothSides</enum>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="midi_groupBox">
     <property name="geometry">
@@ -1476,7 +1718,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>819</width>
+     <width>764</width>
      <height>20</height>
     </rect>
    </property>
