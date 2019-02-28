@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>450</y>
-      <width>171</width>
+      <width>161</width>
       <height>211</height>
      </rect>
     </property>
@@ -107,7 +107,7 @@
       <rect>
        <x>90</x>
        <y>40</y>
-       <width>71</width>
+       <width>61</width>
        <height>121</height>
       </rect>
      </property>
@@ -901,7 +901,7 @@
     <widget class="QGroupBox" name="dco_pulse_groupBox">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>170</x>
        <y>40</y>
        <width>81</width>
        <height>101</height>
@@ -971,7 +971,7 @@
     <widget class="QGroupBox" name="dco_saw_groupBox">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>260</x>
        <y>40</y>
        <width>81</width>
        <height>141</height>
@@ -1067,7 +1067,7 @@
     <widget class="QGroupBox" name="dco_sub_groupBox">
      <property name="geometry">
       <rect>
-       <x>340</x>
+       <x>350</x>
        <y>40</y>
        <width>101</width>
        <height>141</height>
@@ -1239,7 +1239,7 @@
     <widget class="QSlider" name="dco_pw_slider">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>90</x>
        <y>40</y>
        <width>21</width>
        <height>161</height>
@@ -1258,7 +1258,7 @@
     <widget class="QSlider" name="dco_pwm_slider">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>130</x>
        <y>40</y>
        <width>21</width>
        <height>161</height>
@@ -1277,7 +1277,7 @@
     <widget class="QLabel" name="dco_pwm_label">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>120</x>
        <y>20</y>
        <width>41</width>
        <height>20</height>
@@ -1296,7 +1296,7 @@
     <widget class="QLabel" name="dco_pw_label">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>80</x>
        <y>20</y>
        <width>41</width>
        <height>20</height>
@@ -1315,7 +1315,7 @@
     <widget class="QGroupBox" name="dco_range_groupBox">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>20</x>
        <y>40</y>
        <width>51</width>
        <height>101</height>
@@ -1590,7 +1590,7 @@
    <widget class="QGroupBox" name="lfo_groupBox">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>450</y>
       <width>81</width>
       <height>211</height>
@@ -1679,9 +1679,9 @@
    <widget class="QGroupBox" name="midi_groupBox">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>400</x>
       <y>450</y>
-      <width>341</width>
+      <width>351</width>
       <height>121</height>
      </rect>
     </property>
@@ -1698,7 +1698,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QSpinBox" name="spinBox">
+    <widget class="QSpinBox" name="midi_channel_spinBox">
      <property name="geometry">
       <rect>
        <x>100</x>
@@ -1714,7 +1714,7 @@
       <number>16</number>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="midi_channel_label">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1727,7 +1727,7 @@
       <string>MIDI Channel</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="midi_port_label">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1744,7 +1744,7 @@
    <widget class="QGroupBox" name="chorus_groupBox">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>290</x>
       <y>450</y>
       <width>91</width>
       <height>211</height>
@@ -1802,6 +1802,49 @@
      </property>
      <property name="text">
       <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="patch_name_groupBox">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>580</y>
+      <width>351</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>PATCH NAME</string>
+    </property>
+    <widget class="QLineEdit" name="pathc_name_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>331</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Monospace</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Patch name</string>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
