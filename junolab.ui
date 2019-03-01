@@ -1877,7 +1877,7 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionQuit"/>
+    <addaction name="action_quit"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -1892,7 +1892,7 @@
     <string>Save</string>
    </property>
   </action>
-  <action name="actionQuit">
+  <action name="action_quit">
    <property name="text">
     <string>Quit</string>
    </property>

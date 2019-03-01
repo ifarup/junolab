@@ -162,6 +162,11 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         self.patch_name_lineEdit.editingFinished.connect(
             lambda: self.sysex_send_ipr(36, self.patch_name_lineEdit.text()))
 
+        # File menu
+        self.action_quit.triggered.connect(
+            lambda: sys.exit())
+
+
     # Slots
 
     def on_midi_port_changed(self):
