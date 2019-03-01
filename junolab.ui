@@ -1832,7 +1832,7 @@
     <property name="title">
      <string>PATCH NAME</string>
     </property>
-    <widget class="QLineEdit" name="pathc_name_lineEdit">
+    <widget class="QLineEdit" name="patch_name_lineEdit">
      <property name="geometry">
       <rect>
        <x>10</x>
