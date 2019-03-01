@@ -145,6 +145,18 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         self.vca_env_mode_dgt_rbutton.pressed.connect(
             lambda: self.on_button_press(2, 3))
 
+        # Connect the LFO controls
+        self.lfo_rate_slider.valueChanged.connect(
+            lambda: self.on_slider_change(24, self.lfo_rate_slider))
+        self.lfo_delay_slider.valueChanged.connect(
+            lambda: self.on_slider_change(25, self.lfo_delay_slider))
+
+        # Connect the CHORUS controls
+        self.chorus_checkBox.stateChanged.connect(
+            lambda: self.on_button_press(10, self.chorus_checkBox.isChecked()))
+        self.chorus_rate_slider.valueChanged.connect(
+            lambda: self.on_slider_change(34, self.chorus_rate_slider))
+
     # Slots
 
     def on_slider_change(self, parameter, slider):
