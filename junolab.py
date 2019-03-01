@@ -25,6 +25,12 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
+        # MIDI connection
+        ports = mido.get_output_names()
+        self.midi_port_combo.addItems(ports)
+        self.midi_port = mido.open_output(ports[0])
+        self.midi_port_combo.currentIndexChanged.connect(self.on_midi_port_changed)
+
         # Connect the DCO Controls
         self.dco_range_4_rbutton.pressed.connect(
             lambda: self.on_button_press(6, 0))
@@ -159,11 +165,17 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
 
     # Slots
 
+    def on_midi_port_changed(self):
+        self.midi_port = mido.open_output(self.midi_port_combo.currentText())
+
     def on_slider_change(self, parameter, slider):
         sysex_send_ipr(parameter, slider.value())
 
     def on_button_press(self, parameter, value):
-        sysex_send_ipr(parameter, value)
+        sysex_send_ipr(parameter, value, self.midi_channel_spinBox.value() - 1)
+
+    def on_midi_port_select():
+        pass
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
