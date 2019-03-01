@@ -1133,7 +1133,7 @@
        <string>SUB SQ</string>
       </property>
      </widget>
-     <widget class="QRadioButton" name="dco_sub_sq_alt1_rubtton">
+     <widget class="QRadioButton" name="dco_sub_sq_alt1_rbutton">
       <property name="geometry">
        <rect>
         <x>10</x>

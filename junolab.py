@@ -25,7 +25,71 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
-        # Connect up the controls
+        # Connect the DCO Controls
+        self.dco_range_4_rbutton.pressed.connect(
+            lambda: self.on_button_press(6, 0))
+        self.dco_range_8_rbutton.pressed.connect(
+            lambda: self.on_button_press(6, 1))
+        self.dco_range_16_rbutton.pressed.connect(
+            lambda: self.on_button_press(6, 2))
+        self.dco_range_32_rbutton.pressed.connect(
+            lambda: self.on_button_press(6, 3))
+        self.dco_pw_slider.valueChanged.connect(
+            lambda: self.on_slider_change(14, self.dco_pw_slider))
+        self.dco_pwm_slider.valueChanged.connect(
+            lambda: self.on_slider_change(15, self.dco_pwm_slider))
+        self.dco_pulse_off_rbutton.pressed.connect(
+            lambda: self.on_button_press(3, 0))
+        self.dco_pulse_sq_rbutton.pressed.connect(
+            lambda: self.on_button_press(3, 1))
+        self.dco_pulse_pw_fix_rbutton.pressed.connect(
+            lambda: self.on_button_press(3, 2))
+        self.dco_pulse_pwpwm_rbutton.pressed.connect(
+            lambda: self.on_button_press(3, 3))
+        self.dco_saw_off_rbutton.pressed.connect(
+            lambda: self.on_button_press(4, 0))
+        self.dco_saw_saw_rbutton.pressed.connect(
+            lambda: self.on_button_press(4, 1))
+        self.dco_saw_pw_fix_rbutton.pressed.connect(
+            lambda: self.on_button_press(4, 2))
+        self.dco_saw_pwpwm_rbutton.pressed.connect(
+            lambda: self.on_button_press(4, 3))
+        self.dco_saw_saw_alt1_rbutton.pressed.connect(
+            lambda: self.on_button_press(4, 4))
+        self.dco_saw_saw_alt2_rbutton.pressed.connect(
+            lambda: self.on_button_press(4, 5))
+        self.dco_sub_sq_rbutton.pressed.connect(
+            lambda: self.on_button_press(5, 0))
+        self.dco_sub_pw_fix_rbutton.pressed.connect(
+            lambda: self.on_button_press(5, 1))
+        self.dco_sub_sq_alt1_rbutton.pressed.connect(
+            lambda: self.on_button_press(5, 2))
+        self.dco_sub_sq_alt2_rbutton.pressed.connect(
+            lambda: self.on_button_press(5, 3))
+        self.dco_sub_sub_sq_rbutton.pressed.connect(
+            lambda: self.on_button_press(5, 4))
+        self.dco_sub_sub_pw_fix_rbutton.pressed.connect(
+            lambda: self.on_button_press(5, 5))
+        self.dco_sub_lvl_slider.valueChanged.connect(
+            lambda: self.on_slider_change(7, self.dco_sub_lvl_slider))
+        self.dco_noise_lvl_slider.valueChanged.connect(
+            lambda: self.on_slider_change(8, self.dco_noise_lvl_slider))
+        self.dco_lfo_slider.valueChanged.connect(
+            lambda: self.on_slider_change(11, self.dco_lfo_slider))
+        self.dco_after_slider.valueChanged.connect(
+            lambda: self.on_slider_change(13, self.dco_after_slider))
+        self.dco_env_slider.valueChanged.connect(
+            lambda: self.on_slider_change(12, self.dco_env_slider))
+        self.dco_env_mode_env_rbutton.pressed.connect(
+            lambda: self.on_button_press(0, 0))
+        self.dco_env_mode_inv_rbutton.pressed.connect(
+            lambda: self.on_button_press(0, 1))
+        self.dco_env_mode_denv_rbutton.pressed.connect(
+            lambda: self.on_button_press(0, 2))
+        self.dco_env_mode_dinv_rbutton.pressed.connect(
+            lambda: self.on_button_press(0, 3))
+
+        # Connect the VCF controls
         self.vcf_hpf_slider.valueChanged.connect(
             lambda: self.on_slider_change(9, self.vcf_hpf_slider))
         self.vcf_freq_slider.valueChanged.connect(
@@ -49,6 +113,7 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         self.vcf_env_mode_dyn_rbutton.pressed.connect(
             lambda: self.on_button_press(1, 3))
 
+        # Connect the ENV controls
         self.env_t1_slider.valueChanged.connect(
             lambda: self.on_slider_change(26, self.env_t1_slider))
         self.env_l1_slider.valueChanged.connect(
