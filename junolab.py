@@ -131,6 +131,20 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         self.env_key_flw_slider.valueChanged.connect(
             lambda: self.on_slider_change(33, self.env_key_flw_slider))
 
+        # Connect the VCA controls
+        self.vca_level_slider.valueChanged.connect(
+            lambda: self.on_slider_change(22, self.vca_level_slider))
+        self.vca_after_slider.valueChanged.connect(
+            lambda: self.on_slider_change(23, self.vca_after_slider))
+        self.vca_env_mode_env_rbutton.pressed.connect(
+            lambda: self.on_button_press(2, 0))
+        self.vca_env_mode_gt_rbutton.pressed.connect(
+            lambda: self.on_button_press(2, 1))
+        self.vca_env_mode_denv_rbutton.pressed.connect(
+            lambda: self.on_button_press(2, 2))
+        self.vca_env_mode_dgt_rbutton.pressed.connect(
+            lambda: self.on_button_press(2, 3))
+
     # Slots
 
     def on_slider_change(self, parameter, slider):
