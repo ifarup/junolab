@@ -7,16 +7,6 @@ from PyQt5 import QtWidgets, uic
 qtCreatorFile = 'junolab.ui'
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
-def sysex_send_ipr(parameter, value, channel=0):
-    msg = mido.Message('sysex', data=[0b01000001,
-                                      0b00110110,
-                                      channel,
-                                      0b00100011,
-                                      0b00100000,
-                                      0b00000001,
-                                      parameter,
-                                      value])
-    print(msg.hex())
 
 class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
 
@@ -169,13 +159,24 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         self.midi_port = mido.open_output(self.midi_port_combo.currentText())
 
     def on_slider_change(self, parameter, slider):
-        sysex_send_ipr(parameter, slider.value())
+        self.sysex_send_ipr(parameter, slider.value(), self.midi_channel_spinBox.value() - 1)
 
     def on_button_press(self, parameter, value):
-        sysex_send_ipr(parameter, value, self.midi_channel_spinBox.value() - 1)
+        self.sysex_send_ipr(parameter, value, self.midi_channel_spinBox.value() - 1)
 
-    def on_midi_port_select():
-        pass
+    # Send MIDI
+
+    def sysex_send_ipr(self, parameter, value, channel=0):
+        msg = mido.Message('sysex', data=[0b01000001,
+                                          0b00110110,
+                                          channel,
+                                          0b00100011,
+                                          0b00100000,
+                                          0b00000001,
+                                          parameter,
+                                          value])
+        print(msg.hex())
+        self.midi_port.send(msg)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
