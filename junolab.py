@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import mido
@@ -18,10 +18,11 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
         # Set up MIDI connection
-        ports = mido.get_output_names()
+        ports = mido.get_ioport_names()
         self.midi_port_combo.addItems(ports)
-        self.midi_port = mido.open_output(ports[0])
         self.midi_port_combo.currentIndexChanged.connect(self.on_midi_port_changed)
+        self.midi_port = None
+        self.on_midi_port_changed()
 
         # Connect the DCO Controls
         self.dco_range_4_rbutton.pressed.connect(
@@ -170,7 +171,12 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
     # Slots
 
     def on_midi_port_changed(self):
-        self.midi_port = mido.open_output(self.midi_port_combo.currentText())
+        if self.midi_port is not None:
+            self.midi_port.close()
+        self.midi_port = mido.open_ioport(self.midi_port_combo.currentText(), callback=self.on_midi_receive)
+
+    def on_midi_receive(self, msg):
+        print(msg)
 
     def sysex_send_ipr(self, parameter, value):
         data = [0b01000001,
@@ -189,8 +195,8 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
                 data.append(parameter + i)
                 data.append(alpha.find(value[i]))
         msg = mido.Message('sysex', data=data)
-        print(msg.hex())
-        self.midi_port.send(msg)
+        if self.midi_port is not None:
+            self.midi_port.send(msg)
 
 
 if __name__ == "__main__":
