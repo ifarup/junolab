@@ -232,7 +232,6 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         data.append(self.chorus_rate_slider.value())
         data.append(2) # bender range
         data += self.get_patch_name_sysex_data()
-        print(len(data))
         return data
 
     def set_patch_sysex_data(self):
@@ -256,7 +255,6 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def on_midi_receive(self, msg):
         print(msg)
-        print(self.get_patch_sysex_data())
 
     def on_sysex_send_ipr(self, parameter, value):
         data = [0b01000001,
