@@ -167,6 +167,22 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         self.action_quit.triggered.connect(
             lambda: sys.exit())
 
+    def get_patch_name_sysex_data(self):
+        value = self.patch_name_lineEdit.text().ljust(10)
+        alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 -"
+        data = []
+        for i in range(10):
+            data.append(alpha.find(value[i]))
+        return data
+
+    def set_patch_name_sysex_data(self, data):
+        alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 -"
+        name = ''
+        for i in range(10):
+            name.append(alpha[data[i]])
+        name = name.rstrip()
+        self.patch_name_lineEdit.setText(name)
+
     def get_patch_sysex_data(self):
         data = []
         if self.dco_env_mode_env_rbutton.isChecked(): data.append(0)
@@ -234,16 +250,14 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         data += self.get_patch_name_sysex_data()
         return data
 
-    def set_patch_sysex_data(self):
+    def set_patch_sysex_data(self, data):
         pass
 
-    def get_patch_name_sysex_data(self):
-        value = self.patch_name_lineEdit.text().ljust(10)
-        alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 -"
-        data = []
-        for i in range(10):
-            data.append(alpha.find(value[i]))
-        return data
+    def get_patch_sysex(self):
+        pass
+
+    def set_patch_sysex(self, msg):
+        pass
 
     # Slots
 
