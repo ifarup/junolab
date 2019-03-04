@@ -160,23 +160,103 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         name_reg_ex = QRegExp("[A-Za-z0-9 -]*")
         input_validator = QRegExpValidator(name_reg_ex, self.patch_name_lineEdit)
         self.patch_name_lineEdit.setValidator(input_validator)
-        self.patch_name_lineEdit.editingFinished.connect(
+        self.patch_name_lineEdit.textChanged.connect(
             lambda: self.on_sysex_send_ipr(36, self.patch_name_lineEdit.text()))
 
         # File menu
         self.action_quit.triggered.connect(
             lambda: sys.exit())
 
+    def get_patch_sysex_data(self):
+        data = []
+        if self.dco_env_mode_env_rbutton.isChecked(): data.append(0)
+        elif self.dco_env_mode_inv_rbutton.isChecked(): data.append(1)
+        elif self.dco_env_mode_denv_rbutton.isChecked(): data.append(2)
+        else: data.append(3)
+        if self.vcf_env_mode_env_rbutton.isChecked(): data.append(0)
+        elif self.vcf_env_mode_inv_rbutton.isChecked(): data.append(1)
+        elif self.vcf_env_mode_denv_rbutton.isChecked(): data.append(2)
+        else: data.append(3)
+        if self.vca_env_mode_env_rbutton.isChecked(): data.append(0)
+        elif self.vca_env_mode_gt_rbutton.isChecked(): data.append(1)
+        elif self.vca_env_mode_denv_rbutton.isChecked(): data.append(2)
+        else: data.append(3)
+        if self.dco_pulse_off_rbutton.isChecked(): data.append(0)
+        elif self.dco_pulse_sq_rbutton.isChecked(): data.append(1)
+        elif self.dco_pulse_pw_fix_rbutton.isChecked(): data.append(2)
+        else: data.append(3)
+        if self.dco_saw_off_rbutton.isChecked(): data.append(0)
+        elif self.dco_saw_saw_rbutton.isChecked(): data.append(1)
+        elif self.dco_saw_pw_fix_rbutton.isChecked(): data.append(2)
+        elif self.dco_saw_pwpwm_rbutton.isChecked(): data.append(3)
+        elif self.dco_saw_saw_alt1_rbutton.isChecked(): data.append(4)
+        else: data.append(5)
+        if self.dco_sub_sq_rbutton.isChecked(): data.append(0)
+        elif self.dco_sub_pw_fix_rbutton.isChecked(): data.append(1)
+        elif self.dco_sub_sq_alt1_rbutton.isChecked(): data.append(2)
+        elif self.dco_sub_sq_alt2_rbutton.isChecked(): data.append(3)
+        elif self.dco_sub_sub_sq_rbutton.isChecked(): data.append(4)
+        else: data.append(5)
+        if self.dco_range_4_rbutton.isChecked(): data.append(0)
+        elif self.dco_range_8_rbutton.isChecked(): data.append(1)
+        elif self.dco_range_16_rbutton.isChecked(): data.append(2)
+        else: data.append(3)
+        data.append(self.dco_sub_lvl_slider.value())
+        data.append(self.dco_noise_lvl_slider.value())
+        data.append(self.vcf_hpf_slider.value())
+        if self.chorus_checkBox.isChecked(): data.append(1)
+        else: data.append(0)
+        data.append(self.dco_lfo_slider.value())
+        data.append(self.dco_env_slider.value())
+        data.append(self.dco_after_slider.value())
+        data.append(self.dco_pw_slider.value())
+        data.append(self.dco_pwm_slider.value())
+        data.append(self.vcf_freq_slider.value())
+        data.append(self.vcf_res_slider.value())
+        data.append(self.vcf_lfo_slider.value())
+        data.append(self.vcf_env_slider.value())
+        data.append(self.vcf_key_flw_slider.value())
+        data.append(self.vcf_after_slider.value())
+        data.append(self.vca_level_slider.value())
+        data.append(self.vca_after_slider.value())
+        data.append(self.lfo_rate_slider.value())
+        data.append(self.lfo_delay_slider.value())
+        data.append(self.env_t1_slider.value())
+        data.append(self.env_l1_slider.value())
+        data.append(self.env_t2_slider.value())
+        data.append(self.env_l2_slider.value())
+        data.append(self.env_t3_slider.value())
+        data.append(self.env_l3_slider.value())
+        data.append(self.env_t4_slider.value())
+        data.append(self.env_key_flw_slider.value())
+        data.append(self.chorus_rate_slider.value())
+        data.append(2) # bender range
+        data += self.get_patch_name_sysex_data()
+        print(len(data))
+        return data
+
+    def set_patch_sysex_data(self):
+        pass
+
+    def get_patch_name_sysex_data(self):
+        value = self.patch_name_lineEdit.text().ljust(10)
+        alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 -"
+        data = []
+        for i in range(10):
+            data.append(alpha.find(value[i]))
+        return data
 
     # Slots
 
     def on_midi_port_changed(self):
         if self.midi_port is not None:
             self.midi_port.close()
-        self.midi_port = mido.open_ioport(self.midi_port_combo.currentText(), callback=self.on_midi_receive)
+        self.midi_port = mido.open_ioport(
+            self.midi_port_combo.currentText(), callback=self.on_midi_receive)
 
     def on_midi_receive(self, msg):
         print(msg)
+        print(self.get_patch_sysex_data())
 
     def on_sysex_send_ipr(self, parameter, value):
         data = [0b01000001,
@@ -189,11 +269,10 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
             data.append(parameter)
             data.append(value)
         else:
-            alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 -"
-            value = value.ljust(10)
+            name_data = self.get_patch_name_sysex_data()
             for i in range(10):
                 data.append(parameter + i)
-                data.append(alpha.find(value[i]))
+                data.append(name_data[i])
         msg = mido.Message('sysex', data=data)
         if self.midi_port is not None:
             self.midi_port.send(msg)
