@@ -168,18 +168,18 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
             lambda: sys.exit())
 
     def get_patch_name_sysex_data(self):
-        value = self.patch_name_lineEdit.text().ljust(10)
+        patch_name = self.patch_name_lineEdit.text().ljust(10)
         alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 -"
         data = []
         for i in range(10):
-            data.append(alpha.find(value[i]))
+            data.append(alpha.find(patch_name[i]))
         return data
 
     def set_patch_name_sysex_data(self, data):
         alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 -"
         name = ''
         for i in range(10):
-            name.append(alpha[data[i]])
+            name += alpha[data[i]]
         name = name.rstrip()
         self.patch_name_lineEdit.setText(name)
 
@@ -251,7 +251,77 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
         return data
 
     def set_patch_sysex_data(self, data):
-        pass
+        if data[0] == 0: self.dco_env_mode_env_rbutton.setChecked(True)
+        elif data[0] == 1: self.dco_env_mode_inv_rbutton.setChecked(True)
+        elif data[0] == 2: self.dco_env_mode_denv_rbutton.setChecked(True)
+        elif data[0] == 3: self.dco_env_mode_dinv_rbutton.setChecked(True)
+
+        if data[1] == 0: self.vcf_env_mode_env_rbutton.setChecked(True)
+        elif data[1] == 1: self.vcf_env_mode_inv_rbutton.setChecked(True)
+        elif data[1] == 2: self.vcf_env_mode_denv_rbutton.setChecked(True)
+        elif data[1] == 3: self.vcf_env_mode_dyn_rbutton.setChecked(True)
+
+        if data[2] == 0: self.vca_env_mode_env_rbutton.setChecked(True)
+        elif data[2] == 1: self.vca_env_mode_gt_rbutton.setChecked(True)
+        elif data[2] == 2: self.vca_env_mode_denv_rbutton.setChecked(True)
+        elif data[2] == 3: self.vca_env_mode_dgt_rbutton.setChecked(True)
+
+        if data[3] == 0: self.dco_pulse_off_rbutton.setChecked(True)
+        elif data[3] == 1: self.dco_pulse_sq_rbutton.setChecked(True)
+        elif data[3] == 2: self.dco_pulse_pw_fix_rbutton.setChecked(True)
+        elif data[3] == 3: self.dco_pulse_pwpwm_rbutton.setChecked(True)
+
+        if data[4] == 0: self.dco_saw_off_rbutton.setChecked(True)
+        elif data[4] == 1: self.dco_saw_saw_rbutton.setChecked(True)
+        elif data[4] == 2: self.dco_saw_pw_fix_rbutton.setChecked(True)
+        elif data[4] == 3: self.dco_saw_pwpwm_rbutton.setChecked(True)
+        elif data[4] == 4: self.dco_saw_saw_alt1_rbutton.setChecked(True)
+        elif data[4] == 5: self.dco_saw_saw_alt2_rbutton.setChecked(True)
+
+        if data[5] == 0: self.dco_sub_sq_rbutton.setChecked(True)
+        elif data[5] == 1: self.dco_sub_pw_fix_rbutton.setChecked(True)
+        elif data[5] == 2: self.dco_sub_sq_alt1_rbutton.setChecked(True)
+        elif data[5] == 3: self.dco_sub_sq_alt2_rbutton.setChecked(True)
+        elif data[5] == 4: self.dco_sub_sub_sq_rbutton.setChecked(True)
+        elif data[5] == 5: self.dco_sub_sub_pw_fix_rbutton.setChecked(True)
+
+        if data[6] == 0: self.dco_range_4_rbutton.setChecked(True)
+        elif data[6] == 1: self.dco_range_8_rbutton.setChecked(True)
+        elif data[6] == 2: self.dco_range_16_rbutton.setChecked(True)
+        elif data[6] == 3: self.dco_range_32_rbutton.setChecked(True)
+
+        self.dco_sub_lvl_slider.setValue(data[7])
+        self.dco_noise_lvl_slider.setValue(data[8])
+        self.vcf_hpf_slider.setValue(data[9])
+
+        if data[10] == 1: self.chorus_checkBox.setChecked(True)
+        else: self.chorus_checkBox.setChecked(False)
+
+        self.dco_lfo_slider.setValue(data[11])
+        self.dco_env_slider.setValue(data[12])
+        self.dco_after_slider.setValue(data[13])
+        self.dco_pw_slider.setValue(data[14])
+        self.dco_pwm_slider.setValue(data[15])
+        self.vcf_freq_slider.setValue(data[16])
+        self.vcf_res_slider.setValue(data[17])
+        self.vcf_lfo_slider.setValue(data[18])
+        self.vcf_env_slider.setValue(data[19])
+        self.vcf_key_flw_slider.setValue(data[20])
+        self.vcf_after_slider.setValue(data[21])
+        self.vca_level_slider.setValue(data[22])
+        self.vca_after_slider.setValue(data[23])
+        self.lfo_rate_slider.setValue(data[24])
+        self.lfo_delay_slider.setValue(data[25])
+        self.env_t1_slider.setValue(data[26])
+        self.env_l1_slider.setValue(data[27])
+        self.env_t2_slider.setValue(data[28])
+        self.env_l2_slider.setValue(data[29])
+        self.env_t3_slider.setValue(data[30])
+        self.env_l3_slider.setValue(data[31])
+        self.env_t4_slider.setValue(data[32])
+        self.env_key_flw_slider.setValue(data[33])
+        self.chorus_rate_slider.setValue(data[34])
+        self.set_patch_name_sysex_data(data[36:])
 
     def get_patch_sysex(self):
         pass
@@ -268,7 +338,15 @@ class JunoLab(QtWidgets.QMainWindow, Ui_MainWindow):
             self.midi_port_combo.currentText(), callback=self.on_midi_receive)
 
     def on_midi_receive(self, msg):
-        print(msg)
+        if msg.type == 'sysex':
+            if (msg.data[0] == 65 and
+                msg.data[1] == 53 and
+                msg.data[2] == self.midi_channel_spinBox.value() - 1 and
+                msg.data[3] == 35 and
+                msg.data[4] == 32 and
+                msg.data[5] == 1):
+                self.set_patch_sysex_data(msg.data[6:])
+            else: print('other sysex:' + str(msg))
 
     def on_sysex_send_ipr(self, parameter, value):
         data = [0b01000001,
