@@ -1,0 +1,6 @@
+mido==1.2.10
+rtmidi==2.3.4
+python-rtmidi==1.4.9
+PyQt5==5.15.7
+PyQt5-Qt5==5.15.2
+PyQt5-sip==12.11.0
